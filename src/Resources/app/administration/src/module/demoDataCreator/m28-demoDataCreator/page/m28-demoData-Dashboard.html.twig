@@ -1,0 +1,24 @@
+{% block m28_widgetFactory_dashboard %}
+	<sw-page>
+		<template slot="smart-bar-actions"></template>
+		<template #content>
+			<div>
+				<div class="m28-demoData-title">
+					{{$t('m28demoCreator.creator.orders.title')}}
+				</div>
+				<div>
+					<label for="tentacles">{{$t('m28demoCreator.creator.orders.numberlabel')}}</label>
+
+					<input type="number" id="tentacles" name="tentacles"
+						min="1" max="10000" steps="10" v-model="orderNumber">
+				</div>
+				<sw-button variant="primary" @click="createOrders">
+					{{$t('m28demoCreator.creator.orders.generate')}}
+				</sw-button>
+				<div v-if="loading">
+					{{current}}/{{orderNumber}}
+				</div>
+			</div>
+		</template>
+	</sw-page>
+{% endblock %}
